@@ -8,9 +8,10 @@
 #include <QVBoxLayout>
 #include <QCheckBox>
 #include <QGroupBox>
-#include <QErrorMessage>
 #include <QList>
-#include <windows.h>
+#include <QTimer>
+#include <QMessageBox>
+#include <QLabel>
 
 namespace Ui {
 class MainWindow;
@@ -27,8 +28,12 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    int numOfChBoxes=1;
+    int numOfChBoxes;
+    const int maxNum=20;
+    int check=0;
+    const int mtime=100;
 
+    QLabel *label;
     QGroupBox *group;
     QGroupBox *group1;
     QGroupBox *groupChBoxes;
@@ -39,10 +44,17 @@ private:
 
     bool isNumber(QString s);
 
+    QTimer timerCheck;
+    QTimer timerUnCheck;
+
 private slots:
     void TextChanged(QString str);
     void PushButton1();
     void PushButton2();
+
+    void ToCheckBoxes();
+    void ToUnCheckBoxes();
+
 };
 
 #endif // MAINWINDOW_H
