@@ -84,9 +84,6 @@ void MainWindow::PushButton1()
             setCentralWidget(groupChBoxes);
         }
     }
-
-
-
 }
 
 void MainWindow::PushButton2()
